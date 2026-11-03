@@ -1,0 +1,252 @@
+/* =====================================================
+   SIGN UP PAGE: dark theme, large text, responsive
+   Works with the HTML as it is (no extra classes needed)
+   ===================================================== */
+
+/* Font (falls back to your system font if offline) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+
+/* ---------- 1. Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- 2. Color chart (change colors only here) ---------- */
+:root {
+  --bg: #000000;
+  --surface: #0b0b0e;
+  --surface-2: #131318;
+  --surface-3: #181820;
+  --border: #26262e;
+  --border-hover: #3d3d4a;
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --placeholder: #5b5b66;
+
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+  --danger: #ef4444;
+  --success: #22c55e;
+  
+
+  --ring: rgba(99, 102, 241, 0.35);
+  --radius: 14px;
+
+  color-scheme: dark; /* dark scrollbars and native controls */
+}
+
+/* ---------- 3. Page ---------- */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: clamp(16px, 4vw, 48px);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--text);
+  background:
+    radial-gradient(60rem 28rem at 50% -8%, rgba(99, 102, 241, 0.18), transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- 4. Big heading ---------- */
+body > h3 {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #ffffff, #a1a1aa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---------- 5. The card (the form) ---------- */
+form {
+  width: 100%;
+  max-width: 520px;
+  padding: clamp(24px, 5vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 30px 80px rgba(0, 0, 0, 0.85);
+}
+
+/* ---------- 6. Labels ---------- */
+label {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+label:first-of-type {
+  margin-top: 4px;
+}
+
+/* ---------- 7. Inputs ---------- */
+input {
+  display: block;
+  width: 100%;
+  height: 60px;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 1.15rem;
+  color: var(--text);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+input::placeholder {
+  color: var(--placeholder);
+}
+
+input:hover {
+  border-color: var(--border-hover);
+}
+
+/* Focus: glowing border when the user clicks or tabs in */
+input:focus {
+  background-color: var(--surface-3);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Red border only after the user typed something wrong */
+input:user-invalid {
+  border-color: var(--danger);
+}
+
+input:user-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+/* Browser autofill normally turns the box white; keep it dark */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text);
+  caret-color: var(--text);
+  -webkit-box-shadow: 0 0 0 1000px var(--surface-2) inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ---------- 8. Button ---------- */
+button {
+  display: block;
+  width: 100%;
+  height: 62px;
+  margin-top: 26px;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 16px 38px rgba(99, 102, 241, 0.45);
+}
+
+button:active {
+  transform: translateY(0) scale(0.99);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(165, 180, 252, 0.8);
+  outline-offset: 3px;
+}
+
+/* ---------- 9. Optional: messages from PHP later ---------- */
+.error,
+.success {
+  width: 100%;
+  max-width: 520px;
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.error {
+  border-left: 4px solid var(--danger);
+  color: #fecaca;
+}
+
+.success {
+  border-left: 4px solid var(--success);
+  color: #bbf7d0;
+}
+
+/* ---------- 10. Phones ---------- */
+@media (max-width: 480px) {
+  body {
+    gap: 20px;
+  }
+
+  form {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  input {
+    height: 56px;
+    font-size: 1.05rem;
+  }
+
+  button {
+    height: 58px;
+  }
+}
+
+/* ---------- 11. Respect "reduce motion" device setting ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
