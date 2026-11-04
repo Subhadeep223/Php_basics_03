@@ -1,0 +1,207 @@
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page */
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #dbeafe,
+        #c4b5fd,
+        #818cf8
+    );
+}
+
+/* Search Form */
+.searchForm {
+    width: 100%;
+    max-width: 650px;
+    padding: 45px;
+
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+
+    box-shadow: 0 20px 60px rgba(31, 41, 55, 0.15);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchForm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 70px rgba(31, 41, 55, 0.2);
+}
+
+/* Label */
+.searchForm label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Input */
+.searchForm input {
+    width: 100%;
+    padding: 16px 20px;
+
+    font-family: inherit;
+    font-size: 1rem;
+    color: #1e293b;
+
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Input Placeholder */
+.searchForm input::placeholder {
+    color: #94a3b8;
+}
+
+/* Input Focus */
+.searchForm input:focus {
+    background: #ffffff;
+    border-color: #6366f1;
+
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* Search Button */
+.searchForm button {
+    width: 100%;
+    padding: 15px 20px;
+
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+/* Button Hover */
+.searchForm button:hover {
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 25px rgba(99, 102, 241, 0.35);
+}
+
+/* Button Click */
+.searchForm button:active {
+    transform: scale(0.98);
+}
+
+/* Keyboard Focus */
+.searchForm button:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .searchForm {
+        padding: 30px 22px;
+        border-radius: 18px;
+    }
+
+    .searchForm label {
+        font-size: 1rem;
+    }
+
+    .searchForm input,
+    .searchForm button {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Screens */
+@media (max-width: 360px) {
+    .searchForm {
+        padding: 22px 16px;
+    }
+}
+
+
+
+/* Search Form Heading */
+.searchForm::before {
+    content: "Search User";
+    display: block;
+    text-align: center;
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    color: #1e293b;
+
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+
+    border-bottom: 3px solid #6366f1;
+}
+
+/* Input Label */
+.searchForm label {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    color: #4338ca;
+
+    margin-top: 10px;
+    margin-bottom: 4px;
+
+    transition: color 0.3s ease;
+}
+
+/* Label changes color when input is focused */
+.searchForm:focus-within label {
+    color: #7c3aed;
+}
+

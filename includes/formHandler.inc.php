@@ -55,9 +55,9 @@ we do not sanitize data when we are storing it in the database.
         $query="INSERT INTO users (Username,Pwd,Email) values (:username,:pwd,:email);";
 
         $stmt=$pdo->prepare($query);//sending to the db to prevent sql injection
-        $stmt=$pdo->bindParam(:username,$Username);
-        $stmt=$pdo->bindParam(:pwd,$Pwd);
-        $stmt=$pdo->bindParam(:email,$Email);
+        $stmt=$pdo->bindParam(":username",$Username);
+        $stmt=$pdo->bindParam(":pwd",$Pwd);
+        $stmt=$pdo->bindParam(":email",$Email);
 //a named paramter is now bound to an actual data submitted by the user.enhances the security
 before sending it to the db again
 
